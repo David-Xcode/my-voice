@@ -453,7 +453,8 @@ fn default_autostart_enabled() -> bool {
 }
 
 fn default_update_checks_enabled() -> bool {
-    true
+    // 个人自用、从源码运行，不需要 OTA 更新检查
+    false
 }
 
 fn default_selected_language() -> String {
