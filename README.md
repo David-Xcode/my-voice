@@ -4,7 +4,7 @@
 
 Think Typeless / Wispr Flow, but local and tuned for prompting a coding agent: instead of just transcribing, it restructures rambling speech into a clean `Goal / Location / Constraints / Verification` prompt.
 
-> **This is a fork of [cjpais/Handy](https://github.com/cjpais/Handy) (MIT).** Handy provides the hard parts — global hotkey, microphone capture, Silero VAD, local whisper.cpp transcription, and clipboard-paste injection. my-voice adds a tuned local-LLM cleanup mode for Claude Code. Huge credit to CJ Pais and the Handy project. The original Handy README is kept as [`README.upstream-handy.md`](./README.upstream-handy.md).
+> **This is a fork of [cjpais/Handy](https://github.com/cjpais/Handy) (MIT).** Handy provides the hard parts — global hotkey, microphone capture, Silero VAD, local whisper.cpp transcription, and clipboard-paste injection. my-voice adds a tuned local-LLM cleanup mode for Claude Code. Huge credit to CJ Pais and the Handy project.
 
 ## How it works
 

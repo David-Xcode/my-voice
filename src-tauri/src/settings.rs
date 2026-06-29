@@ -519,60 +519,12 @@ fn default_show_tray_icon() -> bool {
 }
 
 fn default_post_process_provider_id() -> String {
-    "openai".to_string()
+    // 本项目用本地 Ollama（custom provider，localhost:11434）
+    "custom".to_string()
 }
 
 fn default_post_process_providers() -> Vec<PostProcessProvider> {
-    let mut providers = vec![
-        PostProcessProvider {
-            id: "openai".to_string(),
-            label: "OpenAI".to_string(),
-            base_url: "https://api.openai.com/v1".to_string(),
-            allow_base_url_edit: false,
-            models_endpoint: Some("/models".to_string()),
-            supports_structured_output: true,
-        },
-        PostProcessProvider {
-            id: "zai".to_string(),
-            label: "Z.AI".to_string(),
-            base_url: "https://api.z.ai/api/paas/v4".to_string(),
-            allow_base_url_edit: false,
-            models_endpoint: Some("/models".to_string()),
-            supports_structured_output: true,
-        },
-        PostProcessProvider {
-            id: "openrouter".to_string(),
-            label: "OpenRouter".to_string(),
-            base_url: "https://openrouter.ai/api/v1".to_string(),
-            allow_base_url_edit: false,
-            models_endpoint: Some("/models".to_string()),
-            supports_structured_output: true,
-        },
-        PostProcessProvider {
-            id: "anthropic".to_string(),
-            label: "Anthropic".to_string(),
-            base_url: "https://api.anthropic.com/v1".to_string(),
-            allow_base_url_edit: false,
-            models_endpoint: Some("/models".to_string()),
-            supports_structured_output: false,
-        },
-        PostProcessProvider {
-            id: "groq".to_string(),
-            label: "Groq".to_string(),
-            base_url: "https://api.groq.com/openai/v1".to_string(),
-            allow_base_url_edit: false,
-            models_endpoint: Some("/models".to_string()),
-            supports_structured_output: false,
-        },
-        PostProcessProvider {
-            id: "cerebras".to_string(),
-            label: "Cerebras".to_string(),
-            base_url: "https://api.cerebras.ai/v1".to_string(),
-            allow_base_url_edit: false,
-            models_endpoint: Some("/models".to_string()),
-            supports_structured_output: true,
-        },
-    ];
+    let mut providers: Vec<PostProcessProvider> = Vec::new();
 
     // Note: We always include Apple Intelligence on macOS ARM64 without checking availability
     // at startup. The availability check is deferred to when the user actually tries to use it
@@ -589,16 +541,6 @@ fn default_post_process_providers() -> Vec<PostProcessProvider> {
             supports_structured_output: true,
         });
     }
-
-    // AWS Bedrock via Mantle (OpenAI-compatible endpoint)
-    providers.push(PostProcessProvider {
-        id: "bedrock_mantle".to_string(),
-        label: "AWS Bedrock (Mantle)".to_string(),
-        base_url: "https://bedrock-mantle.us-east-1.api.aws/v1".to_string(),
-        allow_base_url_edit: false,
-        models_endpoint: Some("/models".to_string()),
-        supports_structured_output: true,
-    });
 
     // Custom provider always comes last
     providers.push(PostProcessProvider {
