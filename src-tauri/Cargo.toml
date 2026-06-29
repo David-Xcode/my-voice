@@ -1,8 +1,8 @@
 [package]
 name = "handy"
 version = "0.8.3"
-description = "Handy"
-authors = ["cjpais"]
+description = "my-voice — local voice to Claude Code prompt"
+authors = ["David-Xcode", "cjpais (original Handy author)"]
 edition = "2021"
 license = "MIT"
 default-run = "handy"
