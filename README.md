@@ -60,12 +60,28 @@ Configure cleanup (Settings → Post-processing):
 - `HANDY_FORCE_AI_STUB` build flag so it compiles on Command-Line-Tools-only Macs (no full Xcode).
 - Documentation of the local-first Ollama + Qwen3 cleanup path and validated latency/quality.
 
+## Personal dictionary & prompt modes
+
+Your professional vocabulary lives in [`dictionary.json`](./dictionary.json) — the single source of truth:
+- `hotwords` → Whisper `initial_prompt`, so terms like `subagent`, `MCP`, `git rebase` transcribe correctly.
+- `replacements` → injected into the cleanup prompt, so spoken forms become code (`use state` → `useState`).
+
+Two cleanup modes are seeded (switch in Settings → Post-processing):
+- **Claude Code Prompt** (default, "L2") — distills your speech into a *professional* prompt, parking unknowns under `## 待确认` instead of inventing them. ~15–20s.
+- **Claude Code (Faithful)** ("L1") — literal restructuring only; faster (~5–8s), no elaboration.
+
+Grow the dictionary — edit `dictionary.json`, then:
+```bash
+python3 scripts/apply-dictionary.py   # syncs hotwords + replacements into Handy settings
+# then restart the app (settings load at startup)
+```
+
 ## Roadmap
 
+- Auto-learn dictionary terms by mining Handy's `history.db` (raw transcript vs your edits)
 - Per-app auto-mode (frontmost bundle id → prompt)
-- Structured spoken→written code dictionary (beyond Whisper hotwords)
 - Raw-transcript one-tap revert
-- Reduce small-model padding (faithfulness tuning)
+- Reduce small-model padding (faithfulness tuning); optional larger model for "L3" elaboration
 
 ## License
 

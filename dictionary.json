@@ -1,0 +1,40 @@
+{
+  "_comment": "你的个人专业词库，单一事实来源。hotwords 喂给 Whisper(initial_prompt) 让它听对拼写；replacements 在清洗阶段把口语化形式规范成代码/术语形式。加词就编辑这里，再跑 scripts/apply-dictionary.py 同步进 Handy 设置。",
+  "hotwords": [
+    "agent", "subagent", "multi-agent", "MCP", "RAG", "LLM", "embedding",
+    "fine-tune", "prompt", "system prompt", "token", "context window",
+    "inference", "hallucination", "structured output", "function calling",
+    "tool use", "vector database", "semantic search", "temperature",
+    "Claude", "Claude Code", "Anthropic", "Opus", "Sonnet", "Haiku",
+    "GPT", "Ollama", "Qwen", "transformer", "workflow",
+    "git push", "git pull", "git rebase", "git merge", "git commit",
+    "git stash", "git cherry-pick", "pull request", "PR", "repo", "branch",
+    "CI", "CD", "Docker", "Kubernetes", "API", "endpoint", "webhook",
+    "async", "await", "TypeScript", "JavaScript", "Python", "Rust",
+    "React", "useState", "useEffect", "Next.js", "Node.js", "Tauri",
+    "npm", "bun", "cargo", "whisper", "SQL", "Postgres", "Redis", "JWT"
+  ],
+  "replacements": {
+    "sub agent": "subagent",
+    "sub-agent": "subagent",
+    "multi agent": "multi-agent",
+    "use state": "useState",
+    "use effect": "useEffect",
+    "console log": "console.log",
+    "type script": "TypeScript",
+    "java script": "JavaScript",
+    "next js": "Next.js",
+    "node js": "Node.js",
+    "git push": "git push",
+    "git re base": "git rebase",
+    "git cherry pick": "git cherry-pick",
+    "pull request": "pull request",
+    "mcp server": "MCP server",
+    "rag": "RAG",
+    "jay son": "JSON",
+    "json": "JSON",
+    "j w t": "JWT",
+    "克劳德": "Claude",
+    "阿尔法": "Anthropic"
+  }
+}
