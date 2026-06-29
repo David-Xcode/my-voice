@@ -46,7 +46,8 @@ const UpdateChecker: React.FC<UpdateCheckerProps> = ({ className = "" }) => {
       return;
     }
 
-    checkForUpdates();
+    // 个人本地自用、禁用 OTA：启动时不自动检查更新。
+    // 托盘菜单的手动检查仍通过下面的 listener 生效。
 
     // Listen for update check events
     const updateUnlisten = listen("check-for-updates", () => {
